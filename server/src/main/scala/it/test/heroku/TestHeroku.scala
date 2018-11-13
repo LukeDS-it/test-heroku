@@ -14,7 +14,7 @@ object TestHeroku extends App {
       )
   }
 
-  val port = Properties.envOrElse("port", "8080")
+  val port = Properties.envOrElse("PORT", "8080")
   println(s"binding on $port")
   val server = Http.serve(s":$port", service)
   Await.ready(server)
