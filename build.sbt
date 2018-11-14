@@ -1,11 +1,16 @@
 val scalatestVersion = "3.0.4"
 
-lazy val api = project in file("api")
+lazy val api = (project in file("api"))
+  .enablePlugins(ReleasePlugin)
+  .settings(
+    name := "test-heroku-api",
+    scalaVersion := "2.12.7",
+  )
 
 lazy val server = (project in file("server"))
+  .enablePlugins(JavaAppPackaging)
   .settings(
     name := "test-heroku",
-    version := "0.1",
     scalaVersion := "2.12.7",
     mainClass in Compile := Some("it.test.heroku.TestHeroku"),
 
@@ -14,7 +19,6 @@ lazy val server = (project in file("server"))
       "org.scalatest" %% "scalatest" % scalatestVersion % Test
     )
   )
-  .enablePlugins(JavaAppPackaging)
   .dependsOn(api)
 
 lazy val `test-heroku` = (project in file("."))
