@@ -5,7 +5,7 @@ lazy val api = (project in file("api"))
   .settings(CommonSettings.settings)
   .settings(
     name := "test-heroku-api",
-    scalaVersion := "2.12.7",
+    scalaVersion := "2.12.7"
   )
 
 lazy val server = (project in file("server"))

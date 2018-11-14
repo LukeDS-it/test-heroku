@@ -1,6 +1,7 @@
 # Heroku Scaffold
 [![Build Status](https://travis-ci.com/LukeDS-it/test-heroku.svg?branch=master)](https://travis-ci.com/LukeDS-it/test-heroku)
-
+[ ![Download](https://api.bintray.com/packages/lukeds-it/maven/test-heroku-api/images/download.svg) ](https://bintray.com/lukeds-it/maven/test-heroku-api/_latestVersion)
+ 
 This is a scaffold to create applications for the heroku platform.
 
 ## Versions
