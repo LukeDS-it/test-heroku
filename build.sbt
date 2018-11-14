@@ -19,7 +19,9 @@ lazy val server = (project in file("server"))
     libraryDependencies ++= Seq(
       "com.twitter" %% "finagle-http" % "18.10.0",
       "org.scalatest" %% "scalatest" % scalatestVersion % Test
-    )
+    ),
+
+    publishArtifact := false
   )
   .dependsOn(api)
 
@@ -28,5 +30,7 @@ lazy val `test-heroku` = (project in file("."))
   .settings(
     run := {
       (run in server in Compile).evaluated
-    }
+    },
+
+    publishArtifact := false
   )
