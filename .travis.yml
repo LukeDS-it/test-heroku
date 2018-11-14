@@ -3,7 +3,7 @@ scala:
     - 2.12.7
 after_success:
   - if [ $TRAVIS_BRANCH = "master" ]; then
-      sbt release
+      sbt release with-defaults skip-tests
     fi
 env:
     global:

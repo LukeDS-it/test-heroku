@@ -2,7 +2,9 @@ val scalatestVersion = "3.0.4"
 
 lazy val api = (project in file("api"))
   .enablePlugins(ReleasePlugin)
+  .settings(ReleaseSettings.settings)
   .settings(
+    organization := "it.ldsoftware",
     name := "test-heroku-api",
     scalaVersion := "2.12.7",
   )
