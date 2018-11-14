@@ -11,6 +11,7 @@ lazy val api = (project in file("api"))
 lazy val server = (project in file("server"))
   .dependsOn(api)
   .enablePlugins(JavaAppPackaging)
+  .settings(PublishSettings.settings)
   .settings(CommonSettings.settings)
   .settings(
     name := "test-heroku",
@@ -27,6 +28,7 @@ lazy val server = (project in file("server"))
 
 lazy val `test-heroku` = (project in file("."))
   .aggregate(api, server)
+  .settings(PublishSettings.settings)
   .settings(CommonSettings.settings)
   .settings(
     run := {
