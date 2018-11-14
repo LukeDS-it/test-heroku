@@ -1,16 +1,17 @@
 val scalatestVersion = "3.0.4"
 
 lazy val api = (project in file("api"))
-  .enablePlugins(ReleasePlugin)
-  .settings(ReleaseSettings.settings)
+  .settings(PublishSettings.settings)
+  .settings(CommonSettings.settings)
   .settings(
-    organization := "it.ldsoftware",
     name := "test-heroku-api",
     scalaVersion := "2.12.7",
   )
 
 lazy val server = (project in file("server"))
+  .dependsOn(api)
   .enablePlugins(JavaAppPackaging)
+  .settings(CommonSettings.settings)
   .settings(
     name := "test-heroku",
     scalaVersion := "2.12.7",
@@ -21,16 +22,16 @@ lazy val server = (project in file("server"))
       "org.scalatest" %% "scalatest" % scalatestVersion % Test
     ),
 
-    publishArtifact := false
+    skip in publish := true
   )
-  .dependsOn(api)
 
 lazy val `test-heroku` = (project in file("."))
   .aggregate(api, server)
+  .settings(CommonSettings.settings)
   .settings(
     run := {
       (run in server in Compile).evaluated
     },
 
-    publishArtifact := false
+    skip in publish := true
   )
