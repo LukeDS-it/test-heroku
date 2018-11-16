@@ -10,6 +10,7 @@ object PublishSettings extends LibraryManagementSyntax {
     bintrayOmitLicense := true,
     releaseProcess := Seq[ReleaseStep](
       inquireVersions,
+      runTest,
       setReleaseVersion,
       commitReleaseVersion,
       tagRelease,
