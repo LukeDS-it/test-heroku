@@ -15,8 +15,7 @@ object PublishSettings extends LibraryManagementSyntax {
       tagRelease,
       releaseStepCommandAndRemaining("publish"),
       setNextVersion,
-      commitNextVersion,
-      pushChanges
+      commitNextVersion
     ),
     releaseCommitMessage := s"Setting version to ${(version in ThisBuild).value} [ci skip]"
   )
