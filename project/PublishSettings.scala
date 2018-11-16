@@ -18,7 +18,6 @@ object PublishSettings extends LibraryManagementSyntax {
       commitNextVersion,
       pushChanges
     ),
-    releaseCommitMessage := s"Setting version to ${(version in ThisBuild).value} [ci skip]",
-    publishTo := Some("Dummy repo" at "https://dummy-repo.com")
+    releaseCommitMessage := s"Setting version to ${(version in ThisBuild).value} [ci skip]"
   )
 }
