@@ -19,6 +19,7 @@ lazy val server = (project in file("server"))
 
     libraryDependencies ++= Seq(
       "com.twitter" %% "finagle-http" % "18.10.0",
+      "org.apache.kafka" %% "kafka" % "2.1.0",
       "org.scalatest" %% "scalatest" % scalatestVersion % Test
     ),
     publish / skip := true
